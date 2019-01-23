@@ -1,0 +1,10 @@
+namespace MyMessage;
+
+table Message {
+	id:int32;
+	name:string;
+	content:string;
+	bindata:[ubyte];
+}
+
+root_type Message;
