@@ -1,39 +1,37 @@
-pipeline {
-  agent any
-  stages {
-    stage('something') {
-      parallel {
-        stage('something') {
-          steps {
-            echo 'hello'
-          }
-        }
+currentBuild.description = "build messages here:\n"
 
-        stage('else') {
-          steps {
-            echo 'something else'
-          }
-        }
+node 'any' {
+	parallel {
+		stage('something') {
+			stage('something') {
+				steps {
+					echo 'hello'
+					currentBuild.description += "done with step 'something'\n"
+				}
+			}
 
-      }
-    }
+			stage('else') {
+				steps {
+					echo 'something else'
+					currentBuild.description += "done with step 'else'\n"
+				}
+			}
+		}
+	}
 
-    stage('ffff') {
-      parallel {
-        stage('ffff') {
-          steps {
-            echo 'dd'
-          }
-        }
+	stage('something else in parallel') {
+		stage('ffff') {
+			steps {
+				echo 'dd'
+				currentBuild.description += "done with step 'ffff'\n"
+			}
+		}
 
-        stage('ggg') {
-          steps {
-            echo 'ggg'
-          }
-        }
-
-      }
-    }
-
-  }
+		stage('ggg') {
+			steps {
+				echo 'ggg'
+				currentBuild.description += "done with step 'ggg'\n"
+			}
+		}
+	}
 }
