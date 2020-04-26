@@ -1,20 +1,18 @@
 currentBuild.description = "build messages here:\n"
 
 node 'any' {
-	parallel {
+	stage('something') {
 		stage('something') {
-			stage('something') {
-				steps {
-					echo 'hello'
-					currentBuild.description += "done with step 'something'\n"
-				}
+			steps {
+				echo 'hello'
+				currentBuild.description += "done with step 'something'\n"
 			}
+		}
 
-			stage('else') {
-				steps {
-					echo 'something else'
-					currentBuild.description += "done with step 'else'\n"
-				}
+		stage('else') {
+			steps {
+				echo 'something else'
+				currentBuild.description += "done with step 'else'\n"
 			}
 		}
 	}
