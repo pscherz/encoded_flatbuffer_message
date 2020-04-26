@@ -12,16 +12,12 @@ node 'any' {
 	}
 
 	stage('ffff') {
-		steps {
-			echo 'dd'
-			currentBuild.description += "done with step 'ffff'\n"
-		}
+		echo 'dd'
+		currentBuild.description += "done with step 'ffff'\n"
 	}
 
 	stage('ggg') {
-		steps {
-			echo 'ggg'
-			currentBuild.description += "done with step 'ggg'\n"
-		}
+		echo 'ggg'
+		currentBuild.description += "done with step 'ggg'\n"
 	}
 }
