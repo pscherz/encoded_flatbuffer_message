@@ -1,4 +1,4 @@
-currentBuild.description = "build messages here:\n"
+currentBuild.description = "build messages here:\n";
 
 node 'any' {
 	stage('something') {
@@ -15,5 +15,6 @@ node 'any' {
 		currentBuild.description += "done with step '1'\n";
 
 		echo('goodbye');
+		currentBuild.result = 'SUCCESS';
 	}
 }
