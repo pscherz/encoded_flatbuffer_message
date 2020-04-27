@@ -4,20 +4,16 @@ node 'any' {
 	stage('something') {
 		echo('hello');
 		currentBuild.description += "done with step 'something'\n";
-	}
 
-	stage('something else'){
-		echo('something else');
-		currentBuild.description += "done with step 'else'\n";
-	}
+		echo('3');
+		currentBuild.description += "done with step '3'\n";
 
-	stage('ffff') {
-		echo('dd');
-		currentBuild.description += "done with step 'ffff'\n";
-	}
+		echo('2');
+		currentBuild.description += "done with step '2'\n";
 
-	stage('ggg') {
-		echo('ggg');
-		currentBuild.description += "done with step 'ggg'\n";
+		echo('1');
+		currentBuild.description += "done with step '1'\n";
+
+		echo('goodbye');
 	}
 }
